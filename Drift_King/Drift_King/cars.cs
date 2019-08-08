@@ -7,23 +7,29 @@ using System.Threading.Tasks;
 
 namespace Drift_King
 {
-    class cars
+    class Car
     {
         // declare fields to use in the class
         public int x, y, width, height;//variables for the rectangle
-        public Image carsImage;//variable for the cars image
-
-        public Rectangle carsRec;//variable for a rectangle to place our image in
+        public Image carImage;//variable for the cars image
+        public Rectangle carRec;//variable for a rectangle to place our image in
         public int score;
         //Create a constructor (initialises the values of the fields)
-        public cars()
+        public Car(int spacing)
         {
-            x = 10;
+            x = spacing;
             y = 10;
-            width = 20;
-            height = 20;
-            carsImage = Image.FromFile("car4.png");
-            carsRec = new Rectangle(x, y, width, height);
+            width = 548;
+            height = 193;
+            carImage = Image.FromFile("car4.png");
+            carRec = new Rectangle(x, y, width, height);
+        }
+
+        // Methods for the cars class
+        public void drawCar(Graphics g)
+        {
+            carRec = new Rectangle(x, y, width, height);
+            g.DrawImage(carImage, carRec);
         }
 
     }

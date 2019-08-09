@@ -17,10 +17,10 @@ namespace Drift_King
         //Create a constructor (initialises the values of the fields)
         public Car(int spacing)
         {
-            x = spacing;
-            y = 10;
-            width = 548;
-            height = 193;
+            x = 430;
+            y = spacing;
+            width = 250;
+            height = 88;
             carImage = Image.FromFile("car4.png");
             carRec = new Rectangle(x, y, width, height);
         }
@@ -31,6 +31,13 @@ namespace Drift_King
             carRec = new Rectangle(x, y, width, height);
             g.DrawImage(carImage, carRec);
         }
+        public void moveCar()
+        {
+            x -= 10;
+
+            carRec.Location = new Point(x, y);
+        }
+
 
     }
 }

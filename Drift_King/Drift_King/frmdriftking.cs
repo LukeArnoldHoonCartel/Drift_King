@@ -46,5 +46,14 @@ namespace Drift_King
             }
 
         }
+
+        private void tmrCar_Tick(object sender, EventArgs e)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                car[i].moveCar();
+            }
+            pnlGame.Invalidate();//makes the paint event fire to redraw the panel
+        }
     }
 }

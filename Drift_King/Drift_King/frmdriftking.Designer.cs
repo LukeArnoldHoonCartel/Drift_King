@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Driftking));
             this.pnlGame = new System.Windows.Forms.Panel();
+            this.tmrCar = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // pnlGame
@@ -41,6 +43,11 @@
             this.pnlGame.Size = new System.Drawing.Size(480, 480);
             this.pnlGame.TabIndex = 0;
             this.pnlGame.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlGame_Paint);
+            // 
+            // tmrCar
+            // 
+            this.tmrCar.Enabled = true;
+            this.tmrCar.Tick += new System.EventHandler(this.tmrCar_Tick);
             // 
             // Driftking
             // 
@@ -59,6 +66,7 @@
         #endregion
 
         private System.Windows.Forms.Panel pnlGame;
+        private System.Windows.Forms.Timer tmrCar;
     }
 }
 

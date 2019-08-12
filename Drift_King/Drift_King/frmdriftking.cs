@@ -16,14 +16,14 @@ namespace Drift_King
         Graphics g; //declare a graphics object called g
         // declare space for an array of 7 objects called cars 
         Car[] car = new Car[3];
-
+        Random xspeed = new Random();
 
         public Driftking()
         {
             InitializeComponent();
             for (int i = 0; i < 3; i++)
             {
-                int x = 10 + (i * 75);
+                int x = 170 + (i * 60);
                 car[i] = new Car(x);
             }
 
@@ -43,6 +43,10 @@ namespace Drift_King
             {
                 //call the Planet class's drawPlanet method to draw the images
                 car[i].drawCar(g);
+                // generate a random number from 5 to 30 and put it in rndmspeed
+                int rndmspeed = xspeed.Next(5, 30);
+                car[i].x -= rndmspeed;
+
             }
 
         }

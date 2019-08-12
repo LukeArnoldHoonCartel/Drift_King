@@ -17,7 +17,7 @@ namespace Drift_King
         //Create a constructor (initialises the values of the fields)
         public Car(int spacing)
         {
-            x = 430;
+            x = 600;
             y = spacing;
             width = 250;
             height = 88;
@@ -33,9 +33,16 @@ namespace Drift_King
         }
         public void moveCar()
         {
-            x -= 10;
+            
 
             carRec.Location = new Point(x, y);
+
+            if (carRec.Location.X < -250)
+            {
+                x = 600;
+                carRec.Location = new Point(x, y);
+            }
+
         }
 
 

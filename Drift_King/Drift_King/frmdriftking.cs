@@ -17,6 +17,10 @@ namespace Drift_King
         // declare space for an array of 7 objects called cars 
         Car[] car = new Car[3];
         Random xspeed = new Random();
+        Player player = new Player();
+        bool left, right;
+        string move;
+
 
         public Driftking()
         {
@@ -48,8 +52,10 @@ namespace Drift_King
                 car[i].x -= rndmspeed;
 
             }
-
+            player.drawPlayer(g);
         }
+
+        
 
         private void tmrCar_Tick(object sender, EventArgs e)
         {
@@ -58,6 +64,34 @@ namespace Drift_King
                 car[i].moveCar();
             }
             pnlGame.Invalidate();//makes the paint event fire to redraw the panel
+        }
+        private void TmrPlayer_Tick(object sender, EventArgs e)
+        {
+            if (right) // if right arrow key pressed
+            {
+                move = "right";
+                player.movePlayer(move);
+            }
+            if (left) // if left arrow key pressed
+            {
+                move = "left";
+                player.movePlayer(move);
+            }
+
+        }
+
+        private void Driftking_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Left) { left = false; }
+            if (e.KeyData == Keys.Right) { right = false; }
+        }
+
+        
+
+        private void Driftking_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Left) { left = true; }
+            if (e.KeyData == Keys.Right) { right = true; }
         }
     }
 }

@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Driftking));
             this.pnlGame = new System.Windows.Forms.Panel();
             this.tmrCar = new System.Windows.Forms.Timer(this.components);
+            this.TmrPlayer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // pnlGame
@@ -49,6 +50,12 @@
             this.tmrCar.Enabled = true;
             this.tmrCar.Tick += new System.EventHandler(this.tmrCar_Tick);
             // 
+            // TmrPlayer
+            // 
+            this.TmrPlayer.Enabled = true;
+            this.TmrPlayer.Interval = 50;
+            this.TmrPlayer.Tick += new System.EventHandler(this.TmrPlayer_Tick);
+            // 
             // Driftking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -56,10 +63,13 @@
             this.ClientSize = new System.Drawing.Size(604, 555);
             this.Controls.Add(this.pnlGame);
             this.DoubleBuffered = true;
+            this.KeyPreview = true;
             this.Name = "Driftking";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Driftking_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Driftking_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Driftking_KeyUp);
             this.ResumeLayout(false);
 
         }
@@ -68,6 +78,7 @@
 
         private System.Windows.Forms.Panel pnlGame;
         private System.Windows.Forms.Timer tmrCar;
+        private System.Windows.Forms.Timer TmrPlayer;
     }
 }
 

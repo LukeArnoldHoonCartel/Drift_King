@@ -39,6 +39,7 @@ namespace Drift_King
 
             if (carRec.Location.X < -250)
             {
+                score += 1;// add 1 to score when planet reaches bottom of panel
                 x = 600;
                 carRec.Location = new Point(x, y);
             }

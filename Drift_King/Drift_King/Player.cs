@@ -36,10 +36,10 @@ namespace Drift_King
 
             if (move == "right")
             {
-                if (playerRec.Location.X > 480) // is spaceship within 50 of right side
+                if (playerRec.Location.X > 295) // is spaceship within 50 of right side
                 {
 
-                    x = 480;
+                    x = 295;
                     playerRec.Location = new Point(x, y);
                 }
                 else

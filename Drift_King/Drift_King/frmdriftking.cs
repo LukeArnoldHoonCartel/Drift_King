@@ -19,6 +19,7 @@ namespace Drift_King
         Random xspeed = new Random();
         Player player = new Player();
         bool left, right;
+        int score, lives;
         string move;
 
 
@@ -36,7 +37,7 @@ namespace Drift_King
 
         private void Driftking_Load(object sender, EventArgs e)
         {
-
+            lives = int.Parse(txtLives.Text);// pass lives entered from textbox to lives variable
         }
 
         private void pnlGame_Paint(object sender, PaintEventArgs e)
@@ -59,9 +60,22 @@ namespace Drift_King
 
         private void tmrCar_Tick(object sender, EventArgs e)
         {
+            score = 0;
             for (int i = 0; i < 3; i++)
             {
                 car[i].moveCar();
+                if (player.playerRec.IntersectsWith(car[i].carRec))
+                {
+                    //reset planet[i] back to top of panel
+                    car[i].x = 600; // set  y value of planetRec
+                    lives -= 1;// lose a life
+                    txtLives.Text = lives.ToString();// display number of lives
+                    checkLives();
+                }
+
+                score += car[i].score;// get score from Planet class (in movePlanet method)
+                lblScore.Text = score.ToString();// display score
+
             }
             pnlGame.Invalidate();//makes the paint event fire to redraw the panel
         }
@@ -93,5 +107,18 @@ namespace Drift_King
             if (e.KeyData == Keys.Left) { left = true; }
             if (e.KeyData == Keys.Right) { right = true; }
         }
+
+        private void checkLives()
+        {
+            if (lives == 0)
+            {
+                tmrCar.Enabled = false;
+                TmrPlayer.Enabled = false;
+                MessageBox.Show("Game Over");
+
+            }
+        }
+
+
     }
 }

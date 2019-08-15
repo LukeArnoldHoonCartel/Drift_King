@@ -100,7 +100,15 @@ namespace Drift_King
             if (e.KeyData == Keys.Right) { right = false; }
         }
 
-        
+        private void mnuStart_Click(object sender, EventArgs e)
+        {
+            score = 0;
+            lblScore.Text = score.ToString();
+            lives = int.Parse(txtLives.Text);// pass lives entered from textbox to lives variable
+            tmrCar.Enabled = true;
+            TmrPlayer.Enabled = true;
+
+        }
 
         private void Driftking_KeyDown(object sender, KeyEventArgs e)
         {

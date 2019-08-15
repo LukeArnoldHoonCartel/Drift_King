@@ -142,6 +142,7 @@
             this.mnuStart.Name = "mnuStart";
             this.mnuStart.Size = new System.Drawing.Size(43, 20);
             this.mnuStart.Text = "Start";
+            this.mnuStart.Click += new System.EventHandler(this.mnuStart_Click);
             // 
             // mnuStop
             // 

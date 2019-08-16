@@ -20,8 +20,8 @@ namespace Drift_King
             x = 5;
             y = 250;
             width = 180;
-            height = 63;
-            player = Image.FromFile("R34.png");
+            height = 54;
+            player = Image.FromFile("car2.png");
             playerRec = new Rectangle(x, y, width, height);
         }
         //methods
@@ -65,6 +65,37 @@ namespace Drift_King
 
 
                 }
+            if (move == "up")
+            {
+                if (playerRec.Location.Y < 2) // is spaceship within 10 of left side
+                {
 
-}   }   }   
+                    y = 1;
+                    playerRec.Location = new Point(x, y);
+                }
+                else
+                {
+                    y -= 12;
+                    playerRec.Location = new Point(x, y);
+                }
+
+
+            }
+            if (move == "down")
+            {
+                if (playerRec.Location.Y < 400) // is spaceship within 10 of left side
+                {
+
+                    y = 400;
+                    playerRec.Location = new Point(x, y);
+                }
+                else
+                {
+                    y += 5;
+                    playerRec.Location = new Point(x, y);
+                }
+
+
+            }
+        }   }   }  
 

@@ -62,7 +62,7 @@
             // 
             // TmrPlayer
             // 
-            this.TmrPlayer.Interval = 50;
+            this.TmrPlayer.Interval = 1;
             this.TmrPlayer.Tick += new System.EventHandler(this.TmrPlayer_Tick);
             // 
             // label1
@@ -149,6 +149,7 @@
             this.mnuStop.Name = "mnuStop";
             this.mnuStop.Size = new System.Drawing.Size(43, 20);
             this.mnuStop.Text = "Stop";
+            this.mnuStop.Click += new System.EventHandler(this.mnuStop_Click);
             // 
             // Driftking
             // 

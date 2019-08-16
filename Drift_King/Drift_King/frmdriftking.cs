@@ -18,7 +18,7 @@ namespace Drift_King
         Car[] car = new Car[3];
         Random xspeed = new Random();
         Player player = new Player();
-        bool left, right;
+        bool left, right, up, down;
         int score, lives;
         string move;
 
@@ -28,8 +28,9 @@ namespace Drift_King
             InitializeComponent();
             for (int i = 0; i < 3; i++)
             {
-                int x = 170 + (i * 60);
+                int x = 185 + (i * 65);
                 car[i] = new Car(x);
+                
             }
 
 
@@ -37,7 +38,10 @@ namespace Drift_King
 
         private void Driftking_Load(object sender, EventArgs e)
         {
-            lives = int.Parse(txtLives.Text);// pass lives entered from textbox to lives variable
+            MessageBox.Show("Use the left, right , up and down arrow keys to move the car. \n Don't get hit by the Cars! \n Every car that gets past scores a point. \n If a car hits you loss a life! \n \n Enter your Name press tab and enter the number of lives \n Click Start to begin", "Game Instructions");
+            txtName.Focus();
+
+
         }
 
         private void pnlGame_Paint(object sender, PaintEventArgs e)
@@ -91,14 +95,20 @@ namespace Drift_King
                 move = "left";
                 player.movePlayer(move);
             }
+            if (up) // if right arrow key pressed
+            {
+                move = "up";
+                player.movePlayer(move);
+            }
+            if (down) // if left arrow key pressed
+            {
+                move = "down";
+                player.movePlayer(move);
+            }
 
         }
 
-        private void Driftking_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.KeyData == Keys.Left) { left = false; }
-            if (e.KeyData == Keys.Right) { right = false; }
-        }
+        
 
         private void mnuStart_Click(object sender, EventArgs e)
         {
@@ -110,10 +120,29 @@ namespace Drift_King
 
         }
 
+        private void mnuStop_Click(object sender, EventArgs e)
+        {
+           
+            
+            tmrCar.Enabled = false;
+            TmrPlayer.Enabled = false;
+            
+
+        }
+        private void Driftking_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Left) { left = false; }
+            if (e.KeyData == Keys.Right) { right = false; }
+            if (e.KeyData == Keys.Up) { up = false; }
+            if (e.KeyData == Keys.Down) { down = false; }
+        }
+
         private void Driftking_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyData == Keys.Left) { left = true; }
             if (e.KeyData == Keys.Right) { right = true; }
+            if (e.KeyData == Keys.Up) { up = true; }
+            if (e.KeyData == Keys.Down) { down = true; }
         }
 
         private void checkLives()

@@ -67,15 +67,15 @@ namespace Drift_King
                 }
             if (move == "up")
             {
-                if (playerRec.Location.Y < 2) // is spaceship within 10 of left side
+                if (playerRec.Location.Y < 190) // is spaceship within 10 of left side
                 {
 
-                    y = 1;
+                    y = 190;
                     playerRec.Location = new Point(x, y);
                 }
                 else
                 {
-                    y -= 12;
+                    y -= 5;
                     playerRec.Location = new Point(x, y);
                 }
 
@@ -83,10 +83,10 @@ namespace Drift_King
             }
             if (move == "down")
             {
-                if (playerRec.Location.Y < 400) // is spaceship within 10 of left side
+                if (playerRec.Location.Y > 325) // is spaceship within 10 of left side
                 {
 
-                    y = 400;
+                    y = 325;
                     playerRec.Location = new Point(x, y);
                 }
                 else
@@ -97,5 +97,5 @@ namespace Drift_King
 
 
             }
-        }   }   }  
+}   }   }  
 

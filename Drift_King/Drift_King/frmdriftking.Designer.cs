@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Driftking));
             this.pnlGame = new System.Windows.Forms.Panel();
             this.tmrCar = new System.Windows.Forms.Timer(this.components);
             this.TmrPlayer = new System.Windows.Forms.Timer(this.components);
@@ -43,12 +42,16 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.mnuStart = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuStop = new System.Windows.Forms.ToolStripMenuItem();
+            this.picgame = new System.Windows.Forms.PictureBox();
+            this.pnlGame.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picgame)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlGame
             // 
-            this.pnlGame.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlGame.BackgroundImage")));
+            this.pnlGame.BackColor = System.Drawing.Color.Transparent;
+            this.pnlGame.Controls.Add(this.picgame);
             this.pnlGame.ForeColor = System.Drawing.Color.Transparent;
             this.pnlGame.Location = new System.Drawing.Point(25, 42);
             this.pnlGame.Name = "pnlGame";
@@ -151,6 +154,14 @@
             this.mnuStop.Text = "Stop";
             this.mnuStop.Click += new System.EventHandler(this.mnuStop_Click);
             // 
+            // picgame
+            // 
+            this.picgame.Location = new System.Drawing.Point(0, 0);
+            this.picgame.Name = "picgame";
+            this.picgame.Size = new System.Drawing.Size(506, 436);
+            this.picgame.TabIndex = 0;
+            this.picgame.TabStop = false;
+            // 
             // Driftking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -174,8 +185,10 @@
             this.Load += new System.EventHandler(this.Driftking_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Driftking_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Driftking_KeyUp);
+            this.pnlGame.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picgame)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -196,6 +209,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem mnuStart;
         private System.Windows.Forms.ToolStripMenuItem mnuStop;
+        private System.Windows.Forms.PictureBox picgame;
     }
 }
 

@@ -6,7 +6,9 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Reflection;
 using System.Windows.Forms;
+
 
 namespace Drift_King
 {
@@ -26,6 +28,7 @@ namespace Drift_King
         public Driftking()
         {
             InitializeComponent();
+            typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic, null, pnlGame, new object[] { true });
             for (int i = 0; i < 3; i++)
             {
                 int x = 185 + (i * 65);
@@ -117,6 +120,25 @@ namespace Drift_King
             lives = int.Parse(txtLives.Text);// pass lives entered from textbox to lives variable
             tmrCar.Enabled = true;
             TmrPlayer.Enabled = true;
+
+        }
+
+        private void picgame_Click(object sender, EventArgs e)
+        {
+            {
+                //get the graphics used to paint on the panel control
+                g = e.Graphics;
+                for (int i = 0; i < 3; i++)
+                {
+                    //call the Planet class's drawPlanet method to draw the images
+                    car[i].drawCar(g);
+                    // generate a random number from 5 to 30 and put it in rndmspeed
+                    int rndmspeed = xspeed.Next(5, 30);
+                    car[i].x -= rndmspeed;
+
+                }
+                player.drawPlayer(g);
+            }
 
         }
 

@@ -23,11 +23,16 @@ namespace Drift_King
         bool left, right, up, down;
         int score, lives;
         string move;
+        private GifImage gifImage = null;
+        private string filePath = "Road.gif";
 
 
         public Driftking()
         {
             InitializeComponent();
+            //b) We control the animation
+            gifImage = new GifImage(filePath);
+            gifImage.ReverseAtEnd = false; //dont reverse at end
             typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic, null, pnlGame, new object[] { true });
             for (int i = 0; i < 3; i++)
             {
@@ -49,6 +54,8 @@ namespace Drift_King
 
         private void pnlGame_Paint(object sender, PaintEventArgs e)
         {
+            //Start the time/animation
+           
             //get the graphics used to paint on the panel control
             g = e.Graphics;
             for (int i = 0; i < 3; i++)
@@ -120,26 +127,20 @@ namespace Drift_King
             lives = int.Parse(txtLives.Text);// pass lives entered from textbox to lives variable
             tmrCar.Enabled = true;
             TmrPlayer.Enabled = true;
-
+            tmrpic.Enabled = true;
         }
 
-        private void picgame_Click(object sender, EventArgs e)
+        
+
+        private void picgame_Click_1(object sender, EventArgs e)
         {
-            {
-                //get the graphics used to paint on the panel control
-                g = e.Graphics;
-                for (int i = 0; i < 3; i++)
-                {
-                    //call the Planet class's drawPlanet method to draw the images
-                    car[i].drawCar(g);
-                    // generate a random number from 5 to 30 and put it in rndmspeed
-                    int rndmspeed = xspeed.Next(5, 30);
-                    car[i].x -= rndmspeed;
+        //Start the time/animation
+        tmrpic.Enabled = true;
+        }
 
-                }
-                player.drawPlayer(g);
-            }
-
+        private void tmrpic_Tick(object sender, EventArgs e)
+        {
+            picgame.Image = gifImage.GetNextFrame();
         }
 
         private void mnuStop_Click(object sender, EventArgs e)
@@ -148,7 +149,7 @@ namespace Drift_King
             
             tmrCar.Enabled = false;
             TmrPlayer.Enabled = false;
-            
+            tmrpic.Enabled = false;
 
         }
         private void Driftking_KeyUp(object sender, KeyEventArgs e)

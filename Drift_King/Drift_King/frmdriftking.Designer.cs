@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.pnlGame = new System.Windows.Forms.Panel();
+            this.picgame = new System.Windows.Forms.PictureBox();
             this.tmrCar = new System.Windows.Forms.Timer(this.components);
             this.TmrPlayer = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
@@ -42,10 +43,10 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.mnuStart = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuStop = new System.Windows.Forms.ToolStripMenuItem();
-            this.picgame = new System.Windows.Forms.PictureBox();
+            this.tmrpic = new System.Windows.Forms.Timer(this.components);
             this.pnlGame.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picgame)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlGame
@@ -58,6 +59,15 @@
             this.pnlGame.Size = new System.Drawing.Size(480, 480);
             this.pnlGame.TabIndex = 0;
             this.pnlGame.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlGame_Paint);
+            // 
+            // picgame
+            // 
+            this.picgame.Location = new System.Drawing.Point(0, 0);
+            this.picgame.Name = "picgame";
+            this.picgame.Size = new System.Drawing.Size(480, 480);
+            this.picgame.TabIndex = 0;
+            this.picgame.TabStop = false;
+            this.picgame.Click += new System.EventHandler(this.picgame_Click_1);
             // 
             // tmrCar
             // 
@@ -154,19 +164,16 @@
             this.mnuStop.Text = "Stop";
             this.mnuStop.Click += new System.EventHandler(this.mnuStop_Click);
             // 
-            // picgame
+            // tmrpic
             // 
-            this.picgame.Location = new System.Drawing.Point(0, 0);
-            this.picgame.Name = "picgame";
-            this.picgame.Size = new System.Drawing.Size(506, 436);
-            this.picgame.TabIndex = 0;
-            this.picgame.TabStop = false;
+            this.tmrpic.Tick += new System.EventHandler(this.tmrpic_Tick);
             // 
             // Driftking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(604, 531);
+            this.Controls.Add(this.pnlGame);
             this.Controls.Add(this.txtLives);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lblScore);
@@ -174,7 +181,6 @@
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.pnlGame);
             this.Controls.Add(this.menuStrip1);
             this.DoubleBuffered = true;
             this.KeyPreview = true;
@@ -186,9 +192,9 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Driftking_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Driftking_KeyUp);
             this.pnlGame.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picgame)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picgame)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -210,6 +216,7 @@
         private System.Windows.Forms.ToolStripMenuItem mnuStart;
         private System.Windows.Forms.ToolStripMenuItem mnuStop;
         private System.Windows.Forms.PictureBox picgame;
+        private System.Windows.Forms.Timer tmrpic;
     }
 }
 

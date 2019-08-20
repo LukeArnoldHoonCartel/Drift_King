@@ -52,6 +52,7 @@
     <Compile Include="frmdriftking.Designer.cs">
       <DependentUpon>frmdriftking.cs</DependentUpon>
     </Compile>
+    <Compile Include="GifImage.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

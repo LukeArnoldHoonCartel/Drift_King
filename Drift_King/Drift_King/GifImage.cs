@@ -21,7 +21,7 @@ namespace Drift_King
         private int frameCount;
         private int currentFrame = -10;
         private bool reverse;
-        private int step = 1;
+        private int step = 5;
 
         public GifImage(string path)
         {

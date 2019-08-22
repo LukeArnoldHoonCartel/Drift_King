@@ -83,7 +83,7 @@ namespace Drift_King
                     //reset planet[i] back to top of panel
                     car[i].x = 600; // set  y value of planetRec
                     lives -= 1;// lose a life
-                    txtLives.Text = lives.ToString();// display number of lives
+                    txtlives.Text = lives.ToString();// display number of lives
                     checkLives();
                 }
 
@@ -124,10 +124,13 @@ namespace Drift_King
         {
             score = 0;
             lblScore.Text = score.ToString();
-            lives = int.Parse(txtLives.Text);// pass lives entered from textbox to lives variable
+            lives = int.Parse(txtlives.Text);// pass lives entered from textbox to lives variable
             tmrCar.Enabled = true;
             TmrPlayer.Enabled = true;
             tmrpic.Enabled = true;
+            
+            
+           
         }
 
         
@@ -135,12 +138,31 @@ namespace Drift_King
         private void picgame_Click_1(object sender, EventArgs e)
         {
         //Start the time/animation
-        tmrpic.Enabled = true;
+        //tmrpic.Enabled = true;
         }
 
         private void tmrpic_Tick(object sender, EventArgs e)
         {
-            picgame.Image = gifImage.GetNextFrame();
+            //picgame.Image = gifImage.GetNextFrame();
+        }
+
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtName_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void inToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tmrCar.Enabled = false;
+            TmrPlayer.Enabled = false;
+            tmrpic.Enabled = false;
+            MessageBox.Show("Use the left, right , up and down arrow keys to move the car. \n Don't get hit by the Cars! \n Every car that gets past scores a point. \n If a car hits you loss a life! \n \n Enter your Name press tab and enter the number of lives \n Click Start to begin", "Game Instructions");
+            txtName.Focus();
         }
 
         private void mnuStop_Click(object sender, EventArgs e)

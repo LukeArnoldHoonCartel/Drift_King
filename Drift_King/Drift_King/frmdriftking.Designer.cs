@@ -42,9 +42,11 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.mnuStart = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuStop = new System.Windows.Forms.ToolStripMenuItem();
+            this.inToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tmrpic = new System.Windows.Forms.Timer(this.components);
             this.txtlives = new System.Windows.Forms.TextBox();
-            this.inToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reseatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.quitmmu = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.picgame)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -144,7 +146,9 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuStart,
             this.mnuStop,
-            this.inToolStripMenuItem});
+            this.reseatToolStripMenuItem,
+            this.inToolStripMenuItem,
+            this.quitmmu});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(984, 46);
@@ -167,6 +171,14 @@
             this.mnuStop.Text = "Stop";
             this.mnuStop.Click += new System.EventHandler(this.mnuStop_Click);
             // 
+            // inToolStripMenuItem
+            // 
+            this.inToolStripMenuItem.Font = new System.Drawing.Font("Forte", 26.25F);
+            this.inToolStripMenuItem.Name = "inToolStripMenuItem";
+            this.inToolStripMenuItem.Size = new System.Drawing.Size(212, 42);
+            this.inToolStripMenuItem.Text = "Instructions";
+            this.inToolStripMenuItem.Click += new System.EventHandler(this.inToolStripMenuItem_Click);
+            // 
             // tmrpic
             // 
             this.tmrpic.Tick += new System.EventHandler(this.tmrpic_Tick);
@@ -180,14 +192,23 @@
             this.txtlives.Name = "txtlives";
             this.txtlives.Size = new System.Drawing.Size(35, 40);
             this.txtlives.TabIndex = 8;
+            this.txtlives.TextChanged += new System.EventHandler(this.txtlives_TextChanged);
             // 
-            // inToolStripMenuItem
+            // reseatToolStripMenuItem
             // 
-            this.inToolStripMenuItem.Font = new System.Drawing.Font("Forte", 26.25F);
-            this.inToolStripMenuItem.Name = "inToolStripMenuItem";
-            this.inToolStripMenuItem.Size = new System.Drawing.Size(212, 42);
-            this.inToolStripMenuItem.Text = "Instructions";
-            this.inToolStripMenuItem.Click += new System.EventHandler(this.inToolStripMenuItem_Click);
+            this.reseatToolStripMenuItem.Font = new System.Drawing.Font("Forte", 26.25F);
+            this.reseatToolStripMenuItem.Name = "reseatToolStripMenuItem";
+            this.reseatToolStripMenuItem.Size = new System.Drawing.Size(128, 42);
+            this.reseatToolStripMenuItem.Text = "Reseat";
+            this.reseatToolStripMenuItem.Click += new System.EventHandler(this.reseatToolStripMenuItem_Click);
+            // 
+            // quitmmu
+            // 
+            this.quitmmu.Font = new System.Drawing.Font("Forte", 26.25F);
+            this.quitmmu.Name = "quitmmu";
+            this.quitmmu.Size = new System.Drawing.Size(93, 42);
+            this.quitmmu.Text = "Quit";
+            this.quitmmu.Click += new System.EventHandler(this.quitmmu_Click);
             // 
             // Driftking
             // 
@@ -240,6 +261,8 @@
         private System.Windows.Forms.TextBox txtlives;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem inToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reseatToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem quitmmu;
     }
 }
 

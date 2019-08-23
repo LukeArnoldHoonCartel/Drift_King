@@ -19,8 +19,8 @@ namespace Drift_King
         {
             x = 600;
             y = spacing;
-            width = 180;
-            height = 53;
+            width = 134;
+            height = 40;
             carImage = Image.FromFile("car4.png");
             carRec = new Rectangle(x, y, width, height);
         }

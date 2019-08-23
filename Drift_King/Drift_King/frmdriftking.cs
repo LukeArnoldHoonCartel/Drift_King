@@ -205,7 +205,7 @@ namespace Drift_King
 
         private void tmrpic_Tick(object sender, EventArgs e)
         {
-            //picgame.Image = gifImage.GetNextFrame();
+           //picgame.Image = gifImage.GetNextFrame();
         }
 
         

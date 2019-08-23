@@ -218,13 +218,13 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(984, 586);
             this.Controls.Add(this.txtlives);
-            this.Controls.Add(this.pnlGame);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lblScore);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.pnlGame);
             this.Controls.Add(this.picgame);
             this.DoubleBuffered = true;
             this.KeyPreview = true;
